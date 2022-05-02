@@ -24,7 +24,6 @@ export async function getImage(
 ): Promise<void> {
   const fileExtension = houseData.photoURL.match(/\.[0-9a-z]+$/i)
   const fileName = houseData.id + '-' + houseData.address + fileExtension
-  console.log(fileName)
   const imageResponse = await fetch(houseData.photoURL)
   imageResponse.body.pipe(createWriteStream(path.join(folderPath, fileName)))
 }
